@@ -1,0 +1,21 @@
+{
+  "name": "factorio-manager",
+  "version": "0.1.0",
+  "description": "Web server to manage headless Factorio game server",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/talltechdude/factorio-manager.git"
+  },
+  "main": "server.js",
+  "bin": {
+    "factorio-manager": "server.js"
+  },
+  "scripts": {
+    "test": "lib/test.js",
+    "postinstall": "ln -sf ../node_modules/purecss/build/pure.css static/"
+  },
+  "author": "Scott Linton <talltechdude@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+  }
+}
