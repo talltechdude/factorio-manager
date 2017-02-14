@@ -1,0 +1,68 @@
+- title = "Factorio Server Control Panel for " + parsedConfig.name + "!"
+
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    title= title
+    link(rel='stylesheet' href='static/pure.css')
+    link(rel='stylesheet' href='static/main.css')
+  body
+    .container
+      h1= title
+
+      .pure-g
+        .pure-u-1-3
+          .pane
+            h3 Mods
+            - if (mods.length == 0)
+              p
+                i None
+            - else
+              ul
+                each mod in mods
+                  li
+                    a(href=mod.path)= mod.stem
+              p
+                a(href="/modpackage")="Download All"
+
+            form.pure-form.pure-form-stacked(method="POST" action="transload-mod")
+              fieldset
+                legend Install a mod
+                label URL:
+                  input(type="text" name="fileURL")
+                br
+                button(type="submit") Transload
+            form.pure-form.pure-form-stacked(method="POST" action="mods" enctype="multipart/form-data")
+              fieldset
+                legend Upload a mod
+                input(type="file" name="file")
+                br
+                button(type="submit") Upload
+
+        .pure-u-1-3
+          .pane
+            h3 Saved Games
+            - if (saves.length == 0)
+              p
+                i None
+            - else
+              ul
+                each save in saves
+                  li
+                    a(href=save.path)= save.stem
+                    time(datetime=save.stat.mtime)= '('+moment(save.stat.mtime).fromNow()+')'
+
+            form.pure-form.pure-form-stacked(method="POST" action="create-save")
+              fieldset
+                legend Create new save file
+                label Name:
+                  input(type="text" name="saveName")
+                br
+                button(type="submit") Create
+            form.pure-form.pure-form-stacked(method="POST" action="saves" enctype="multipart/form-data")
+              fieldset
+                legend Upload a save file
+                input(type="file" name="file")
+                br
+                button(type="submit") Upload
