@@ -12,7 +12,7 @@
   },
   "scripts": {
     "test": "lib/test.js",
-    "postinstall": "ln -sf ../node_modules/purecss/build/pure.css static/"
+    "postinstall": "ln -sf node_modules/purecss/build/pure.css static/"
   },
   "author": "Scott Linton <talltechdude@gmail.com>",
   "license": "MIT",
