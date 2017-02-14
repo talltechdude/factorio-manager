@@ -13,5 +13,6 @@ EXPOSE 8000
 
 VOLUME /opt/factorio/saves
 VOLUME /opt/factorio/mods
+VOLUME /opt/factorio/data
 
 CMD node /app
