@@ -19,21 +19,21 @@ html
               p
                 i None
             - else
+              p
+                a(href="/modpackage")="Download All"
               ul
                 each mod in mods
                   li
                     a(href=mod.path)= mod.stem
-              p
-                a(href="/modpackage")="Download All"
 
-            form.pure-form.pure-form-stacked(method="POST" action="transload-mod")
+            //- form.pure-form.pure-form-stacked(method="POST" action="transload-mod")
               fieldset
                 legend Install a mod
                 label URL:
                   input(type="text" name="fileURL")
                 br
                 button(type="submit") Transload
-            form.pure-form.pure-form-stacked(method="POST" action="mods" enctype="multipart/form-data")
+            //- form.pure-form.pure-form-stacked(method="POST" action="mods" enctype="multipart/form-data")
               fieldset
                 legend Upload a mod
                 input(type="file" name="file")
@@ -53,14 +53,14 @@ html
                     a(href=save.path)= save.stem
                     time(datetime=save.stat.mtime)= '('+moment(save.stat.mtime).fromNow()+')'
 
-            form.pure-form.pure-form-stacked(method="POST" action="create-save")
+            //- form.pure-form.pure-form-stacked(method="POST" action="create-save")
               fieldset
                 legend Create new save file
                 label Name:
                   input(type="text" name="saveName")
                 br
                 button(type="submit") Create
-            form.pure-form.pure-form-stacked(method="POST" action="saves" enctype="multipart/form-data")
+            //- form.pure-form.pure-form-stacked(method="POST" action="saves" enctype="multipart/form-data")
               fieldset
                 legend Upload a save file
                 input(type="file" name="file")
